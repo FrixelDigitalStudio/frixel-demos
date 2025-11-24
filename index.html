@@ -1,447 +1,229 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>FRIXEL Digital Studio — Your Digital Edge</title>
-<meta name="description" content="FRIXEL Digital Studio — Clean, minimal & professional websites for small businesses. Pricing from ₦60k." />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>The Enugu Resort — Frixel Digital Studio Hotel Demo</title>
 <style>
-:root{
-  --bg:#0b0b0b;
-  --panel:#101113;
-  --muted:#9aa0a6;
-  --gold:#FFD56B;
-  --white:#F5F5F5;
-  --glass: rgba(255,255,255,0.03);
-  --accent-2:#b88f4f;
-  --maxw:1200px;
+:root {
+  --bg-sand: #FDF6E3;
+  --primary-teal: #009688;
+  --accent-orange: #FF7043;
+  --text-dark: #333;
+  --text-muted: #555;
+  --maxw: 1200px;
 }
-*{box-sizing:border-box;}
-html,body{height:100%;}
-body{
-  margin:0;
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-  background: linear-gradient(180deg,#070707 0%, var(--bg) 100%);
-  color:var(--white);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.5;
-}
-a{color:inherit; text-decoration:none;}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:36px;}
+* {box-sizing: border-box; font-family: 'Inter', sans-serif;}
+body {margin:0; background: var(--bg-sand); color: var(--text-dark);}
+a {color: inherit; text-decoration: none;}
+button {cursor: pointer;}
 
-/* NAV */
-header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
-.brand{display:flex;gap:14px;align-items:center;}
-.logo{
-  width:64px;height:64px;border-radius:12px;
-  background:linear-gradient(135deg,var(--gold),var(--accent-2));
-  display:flex;align-items:center;justify-content:center;font-weight:900;color:#0a0a0a;font-size:20px;
-  box-shadow:0 8px 30px rgba(255,213,107,0.08);
-}
-.brand h1{margin:0;font-size:18px;letter-spacing:0.3px;}
-.brand p{margin:0;font-size:12px;color:var(--muted);}
-nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
-nav a{padding:8px 12px;border-radius:8px;color:var(--white);font-weight:600;opacity:0.95;transition:all .2s;}
-nav a:hover{background:rgba(255,255,255,0.08);}
-.btn-cta{background:var(--gold);color:#0b0b0b;padding:10px 14px;border-radius:8px;font-weight:800;transition:all .2s;}
-.btn-cta:hover{background:#fddc7a;}
+/* Container */
+.wrap {max-width: var(--maxw); margin:0 auto; padding:18px;}
 
-/* HERO */
-.hero{
-  position:relative;
-  display:grid;
-  grid-template-columns:1fr 420px;
-  gap:32px;
-  align-items:center;
-  margin-top:26px;
-  padding:36px;
-  border-radius:14px;
-  overflow:hidden;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=70") center/cover no-repeat;
-  filter: brightness(0.4);
-  z-index:1;
-}
-.hero-content{
-  position:relative;
-  z-index:2;
-}
-.hero h2{
-  font-size:40px;margin:0 0 12px 0;letter-spacing:-0.6px;
-}
-.hero p{
-  color:var(--muted);margin:0 0 18px 0;font-size:15px;
-}
-.hero .actions{display:flex;gap:12px;align-items:center;margin-top:18px;}
-.btn-outline{
-  background:transparent;
-  border:1px solid rgba(255,255,255,0.06);
-  padding:10px 14px;
-  border-radius:10px;
-  color:var(--white);
-  font-weight:700;
-  transition:all .2s;
-}
-.btn-outline:hover{background:rgba(255,255,255,0.08);}
+/* Topbar */
+.topbar {display:flex; justify-content:space-between; align-items:center; padding:8px 0;}
+.brand {display:flex; align-items:center; gap:12px;}
+.logo {width:50px; height:50px; border-radius:8px; background: var(--primary-teal); display:flex; justify-content:center; align-items:center; color:#fff; font-weight:800; font-size:20px;}
+.topnav {display:flex; gap:14px; align-items:center;}
+.topnav a {font-weight:600; padding:6px 12px; border-radius:6px; transition: 0.2s;}
+.topnav a:hover {background: var(--accent-orange); color:#fff;}
 
-/* HERO CARD */
-.hero-card{
-  position:relative;
-  z-index:2;
-  background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
-  padding:18px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,0.03);
-  transition:transform .2s;
-}
-.hero-card:hover{transform:translateY(-5px);}
+/* Hero Section */
+.hero {display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; background:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.05)), url('https://via.placeholder.com/1600x600?text=Hotel+Hero') center/cover no-repeat; border-radius:12px; padding:30px; color:#00796b; margin-top:12px;}
+.hero-left {flex:1; min-width:250px;}
+.hero-left h1 {font-size:35px; margin-bottom:10px;}
+.hero-left p {color:#00796b; margin-bottom:20px;}
+.hero-right {flex:1; min-width:250px; background: rgba(255,255,255,0.95); padding:20px; border-radius:12px; color: var(--text-dark);}
+.hero-right label {font-size:12px; margin-bottom:4px; display:block;}
+.hero-right input, .hero-right select {width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #00796b; font-weight:600;}
+.btn-book {background: var(--primary-teal); color:#fff; padding:12px; border:none; border-radius:8px; font-weight:700; width:100%; transition:0.2s;}
+.btn-book:hover {background: #00796b;}
 
-/* About & services */
-.about{display:grid;grid-template-columns:1fr 360px;gap:24px;margin-top:32px;align-items:start;}
-.roles{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
-.role{background:var(--panel);padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);font-weight:700;color:var(--muted);font-size:13px;}
+/* Rooms Section */
+.section {margin-top:28px;}
+.section h2 {font-size:24px; font-weight:800; margin-bottom:12px; color: var(--primary-teal);}
+.rooms-scroll {display:flex; overflow-x:auto; gap:16px; padding-bottom:8px;}
+.room-card {min-width:280px; background:#fff; border-radius:12px; box-shadow:0 6px 22px rgba(0,0,0,0.06); flex-shrink:0; display:flex; flex-direction:column;}
+.room-img {width:100%; height:180px; object-fit:cover; border-radius:12px 12px 0 0;}
+.room-body {padding:12px; display:flex; flex-direction:column; gap:6px;}
+.room-title {margin:0; font-weight:800; color: var(--text-dark);}
+.room-meta {font-size:13px; color: var(--text-muted);}
+.room-row {display:flex; justify-content:space-between; align-items:center; margin-top:auto;}
+.price {font-weight:900; color: var(--primary-teal);}
+.btn-small {padding:8px 12px; border-radius:8px; border:none; font-weight:700; cursor:pointer; transition:0.2s;}
+.btn-small-view {background:#f0f0f0;}
+.btn-small-view:hover {background:#e0e0e0;}
+.btn-small-book {background: var(--accent-orange); color:#fff;}
+.btn-small-book:hover {background:#f4511e;}
 
-/* Services */
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;}
-.service{background:var(--panel);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);}
-.service h4{margin:0 0 8px 0;}
-.service p{margin:0;color:var(--muted);font-size:14px;}
+/* Amenities Section */
+.amenities {display:flex; flex-wrap:wrap; gap:14px; margin-top:12px;}
+.amenity {flex:1; min-width:120px; text-align:center; background:#fff; padding:12px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.04);}
+.amenity-icon {font-size:24px; margin-bottom:6px; color: var(--primary-teal);}
 
-/* Projects */
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-top:34px;}
-.section-head h3{margin:0;font-size:22px;}
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:14px;}
-.card{
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-  border-radius:12px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.03);
-  transition:transform .18s;
-  display:flex;
-  flex-direction:column;
-}
-.card:hover{transform:translateY(-8px);}
-.card img{width:100%;height:160px;object-fit:cover;display:block;transition:all .3s;}
-.card img:hover{transform:scale(1.05);}
-.card-body{padding:14px;flex:1;display:flex;flex-direction:column;}
-.card-body h4{margin:0 0 8px 0;}
-.card-body p{margin:0;color:var(--muted);font-size:14px;flex:1;}
-.card-meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px;}
-.tag{font-size:12px;color:var(--muted);padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.015);}
+/* Gallery Section */
+.gallery-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); grid-auto-rows:120px; gap:8px; margin-top:12px;}
+.gallery-img {width:100%; height:100%; object-fit:cover; border-radius:8px;}
 
-/* Pricing */
-.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px;}
-.price{background:linear-gradient(90deg, rgba(255,255,255,0.01), transparent);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);}
-.price h4{margin:0 0 8px 0;}
-.price .amt{font-size:22px;color:var(--gold);font-weight:900;margin:8px 0;}
-
-/* Testimonials & FAQ */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
-.panel{background:var(--panel);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);color:var(--muted);}
-
-/* Contact */
-.contact{margin-top:28px;padding:26px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
-.contact .actions{display:flex;gap:12px;align-items:center;margin-top:12px;}
-.contact .actions a{transition:all .2s;}
-.contact .actions a:hover{opacity:0.8;}
+/* Testimonials Section */
+.testimonials {display:flex; overflow-x:auto; gap:12px; margin-top:12px;}
+.test-card {min-width:250px; background:#fff; padding:12px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.04);}
+.stars {color:gold; margin-bottom:6px; font-size:14px; font-weight:700;}
 
 /* Footer */
-footer{margin-top:36px;text-align:center;color:var(--muted);font-size:13px;padding-bottom:40px;}
+footer {margin-top:26px;text-align:center;color:var(--text-muted); font-size:13px;}
 
-/* Modal */
-.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(4,4,4,0.6);z-index:1200;}
-.modal.show{display:flex;}
-.modal .box{width:min(900px,96%);background:var(--panel);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);color:var(--white);}
-.modal img{width:100%;max-height:60vh;object-fit:cover;border-radius:8px;}
-.modal .meta{margin-top:10px;color:var(--muted);}
+/* Demo Note */
+.demo-note {margin-top:14px; padding:12px; background:#FFF8E1; border-radius:8px; color:#444; font-style:italic;}
 
 /* Responsive */
-@media (max-width:980px){
-  .hero{grid-template-columns:1fr;}
-  .about{grid-template-columns:1fr;}
-  .services{grid-template-columns:1fr;}
-  .pricing{grid-template-columns:1fr;}
-  .grid-2{grid-template-columns:1fr;}
-  .contact{flex-direction:column;align-items:flex-start;}
+@media(max-width:900px){
+  .hero {flex-direction:column;}
+  .hero-right {margin-top:12px;}
+  .rooms-scroll, .testimonials {flex-wrap:wrap; justify-content:center;}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <!-- NAV -->
-  <header>
+  <!-- Topbar -->
+  <div class="topbar">
     <div class="brand">
       <div class="logo">FD</div>
       <div>
-        <h1>FRIXEL DIGITAL STUDIO</h1>
-        <p>Your Digital Edge</p>
+        <div style="font-weight:700;">Frixel Digital Studio</div>
+        <div style="font-size:12px; color:var(--text-muted)">Your Digital Edge.</div>
       </div>
     </div>
-
-    <nav aria-label="Main">
-      <a href="#services">Services</a>
-      <a href="#work">Work</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#contact">Contact</a>
-      <a class="btn-cta" href="https://wa.me/2348153972391" target="_blank">WhatsApp — 08153972391</a>
+    <nav class="topnav">
+      <a href="#">Home</a>
+      <a href="#">Rooms</a>
+      <a href="#">Amenities</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact</a>
     </nav>
-  </header>
+  </div>
 
-  <!-- HERO -->
-  <section class="hero" id="home" aria-labelledby="heroTitle">
-    <div class="hero-content">
-      <h2 id="heroTitle">Clean websites that convert customers — fast.</h2>
-      <p>FRIXEL builds minimal, high-performance websites for small businesses: restaurants, hotels, gyms, real estate & online stores. Starter sites from ₦60k.</p>
-      <div class="actions">
-        <a class="btn-cta" href="https://wa.me/2348153972391" target="_blank">Get Started — WhatsApp</a>
-        <button class="btn-outline" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View demos</button>
-      </div>
-      <div style="margin-top:18px;color:var(--muted);font-size:13px">
-        <strong>Delivery:</strong> Starter site in 2–4 days • Business sites 5–10 days • Premium projects by agreement.
-      </div>
-      <div class="roles">
-        <div class="role">Frontend Developer</div>
-        <div class="role">UI / UX Designer</div>
-        <div class="role">Web Developer</div>
-        <div class="role">Creative Specialist</div>
-      </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1>Welcome to The Enugu Resort</h1>
+      <p>Luxury, comfort, and relaxation all in one perfect getaway.</p>
     </div>
-
-    <aside class="hero-card" aria-hidden="false">
-      <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Fast Offer</div>
-      <div style="font-weight:800;font-size:18px">Starter Website — ₦60,000</div>
-      <div style="color:var(--muted);margin-top:10px">One-page responsive site with WhatsApp contact. 2 rounds revision.</div>
-      <div style="margin-top:12px;display:flex;gap:8px">
-        <a class="btn-cta" href="https://wa.me/2348153972391" target="_blank">Order Starter</a>
-        <button class="btn-outline" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">See Prices</button>
-      </div>
-    </aside>
+    <div class="hero-right">
+      <label>Check-in</label>
+      <input type="date"/>
+      <label>Check-out</label>
+      <input type="date"/>
+      <label>Guests</label>
+      <select><option>1</option><option>2</option><option>3</option><option>4+</option></select>
+      <label>Room Type</label>
+      <select><option>Any</option><option>Standard</option><option>Suite</option><option>Deluxe</option></select>
+      <button class="btn-book" onclick="alert('Booking simulated!')">Check Availability</button>
+    </div>
   </section>
 
-  <!-- ABOUT / SERVICES -->
-  <section class="about" id="about">
-    <div>
-      <h3>About FRIXEL</h3>
-      <p style="color:var(--muted);margin-top:8px">I’m Kenechukwu Franklin — a web creator focused on clean, minimal and conversion-minded websites. I help small businesses go online quickly, look professional, and get customers.</p>
-
-      <div class="services" style="margin-top:18px">
-        <div class="service">
-          <h4>Website Design</h4>
-          <p>Beautiful, responsive UI that reflects your brand and converts visitors to customers.</p>
-        </div>
-        <div class="service">
-          <h4>Frontend Development</h4>
-          <p>Pixel-perfect HTML/CSS/JS — fast, accessible and mobile-ready.</p>
-        </div>
-        <div class="service">
-          <h4>Full-Stack (Premium)</h4>
-          <p>Back-end systems, bookings, admin panels — available as premium service.</p>
+  <!-- Rooms -->
+  <section class="section">
+    <h2>Our Rooms</h2>
+    <div class="rooms-scroll">
+      <div class="room-card">
+        <img class="room-img" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/180186829.jpg?k=d48c543e585a932e1066fc95f7ccc49d3c4c94011f83a80f6dc8e209733c4fb6&o=" alt="Suite">
+        <div class="room-body">
+          <h3 class="room-title">Luxury Suite</h3>
+          <div class="room-meta">2 beds • 2 baths • Sea view</div>
+          <div class="room-row">
+            <div class="price">₦75,000 / night</div>
+            <div style="display:flex; gap:6px;">
+              <button class="btn-small btn-small-view" onclick="alert('View clicked!')">View</button>
+              <button class="btn-small btn-small-book" onclick="window.open('https://wa.me/23481572391','_blank')">Book Now</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div style="background:var(--panel);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
-      <h4 style="margin:0 0 8px 0">Quick Stats</h4>
-      <div style="color:var(--muted);font-size:14px">Trusted by small businesses in Enugu. Fast delivery. Clear pricing.</div>
-      <div style="margin-top:12px;display:flex;gap:12px;flex-direction:column">
-        <div style="display:flex;justify-content:space-between"><div style="color:var(--muted)">Starter</div><div style="font-weight:800">₦60k</div></div>
-        <div style="display:flex;justify-content:space-between"><div style="color:var(--muted)">Business</div><div style="font-weight:800">₦150k</div></div>
-        <div style="display:flex;justify-content:space-between"><div style="color:var(--muted)">Professional</div><div style="font-weight:800">₦180k+</div></div>
+      <div class="room-card">
+        <img class="room-img" src="https://www.parkregiskriskin.ae/wp-content/uploads/2020/07/room-twin-bed-2520x1400.jpg" alt="Deluxe">
+        <div class="room-body">
+          <h3 class="room-title">Deluxe Room</h3>
+          <div class="room-meta">1 bed • 1 bath • Garden view</div>
+          <div class="room-row">
+            <div class="price">₦45,000 / night</div>
+            <div style="display:flex; gap:6px;">
+              <button class="btn-small btn-small-view" onclick="alert('View clicked!')">View</button>
+              <button class="btn-small btn-small-book" onclick="window.open('https://wa.me/23481572391','_blank')">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <img class="room-img" src="https://theranaldhotel.com/wp-content/uploads/2024/05/standard-room24.jpg" alt="Standard">
+        <div class="room-body">
+          <h3 class="room-title">Standard Room</h3>
+          <div class="room-meta">1 bed • 1 bath • City view</div>
+          <div class="room-row">
+            <div class="price">₦30,000 / night</div>
+            <div style="display:flex; gap:6px;">
+              <button class="btn-small btn-small-view" onclick="alert('View clicked!')">View</button>
+              <button class="btn-small btn-small-book" onclick="window.open('https://wa.me/23481572391','_blank')">Book Now</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- WORK / PROJECTS -->
-  <section id="work" class="section">
-    <div class="section-head">
-      <h3>Selected Projects</h3>
-      <div style="color:var(--muted)">6 industry demos • click to preview</div>
-    </div>
-
-    <div class="projects" id="projectsList">
-      <!-- Cards injected by JS -->
+  <!-- Amenities -->
+  <section class="section">
+    <h2>Amenities</h2>
+    <div class="amenities">
+      <div class="amenity"><div class="amenity-icon">🏊</div>Swimming Pool</div>
+      <div class="amenity"><div class="amenity-icon">🛁</div>Spa</div>
+      <div class="amenity"><div class="amenity-icon">🏋️</div>Gym</div>
+      <div class="amenity"><div class="amenity-icon">☕</div>Breakfast</div>
+      <div class="amenity"><div class="amenity-icon">📶</div>Free Wi-Fi</div>
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section id="pricing" class="section">
-    <div class="section-head">
-      <h3>Pricing</h3>
-      <div style="color:var(--muted)">Simple, honest pricing for small businesses</div>
+  <!-- Gallery -->
+  <section class="section">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img class="gallery-img" src="https://www.chicagoriverhotel.com/wp-content/uploads/sites/9/2017/06/1513-SUITE_CQ_WACKER_0122_White-No-Pattern.jpg" alt="Gallery1">
+      <img class="gallery-img" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/04/e2/b2/hotel-garden.jpg?w=900&h=500&s=1" alt="Gallery2">
+      <img class="gallery-img" src="https://dia8gfjyjgvkg.cloudfront.net/content/uploads/2024/08/The-Pool-650x420-2024.jpg" alt="Gallery3">
+      <img class="gallery-img" src="https://www.municipalhotelliverpool.com/wp-content/uploads/sites/41/2023/06/Fitness-Centre.jpg" alt="Gallery4">
     </div>
+  </section>
 
-    <div class="pricing" role="list">
-      <div class="price">
-        <h4>Starter</h4>
-        <div class="amt">₦60,000</div>
-        <div style="color:var(--muted)">Ideal for individuals & single-page needs</div>
-        <ul style="color:var(--muted);margin-top:10px;padding-left:18px">
-          <li>1 page • Responsive</li>
-          <li>WhatsApp contact + contact form</li>
-          <li>2 revisions • 2–4 day delivery</li>
-        </ul>
-        <div style="margin-top:12px"><a class="btn-cta" href="https://wa.me/2348153972391" target="_blank">Order Starter</a></div>
+  <!-- Testimonials -->
+  <section class="section">
+    <h2>Guest Reviews</h2>
+    <div class="testimonials">
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"An unforgettable stay! Excellent service and rooms." — Chris Harrison</p>
       </div>
-
-      <div class="price">
-        <h4>Business</h4>
-        <div class="amt">₦150,000</div>
-        <div style="color:var(--muted)">For restaurants, shops & local services</div>
-        <ul style="color:var(--muted);margin-top:10px;padding-left:18px">
-          <li>3–5 pages</li>
-          <li>Gallery / Menu / Listings</li>
-          <li>1 month support</li>
-        </ul>
-        <div style="margin-top:12px"><a class="btn-cta" href="https://wa.me/2348153972391" target="_blank">Order Business</a></div>
+      <div class="test-card">
+        <div class="stars">★★★★☆</div>
+        <p>"Beautiful resort, very relaxing. Highly recommend." — Justin</p>
       </div>
-
-      <div class="price">
-        <h4>Professional</h4>
-        <div class="amt">₦180,000 – ₦300,000+</div>
-        <div style="color:var(--muted)">Custom projects & full-stack solutions</div>
-        <ul style="color:var(--muted);margin-top:10px;padding-left:18px">
-          <li>Custom UI • Admin • Payment</li>
-          <li>Advanced features & integrations</li>
-          <li>Priority support</li>
-        </ul>
-        <div style="margin-top:12px"><a class="btn-cta" href="https://wa.me/2348153972391" target="_blank">Discuss Project</a></div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Premium hotel experience in Enugu! Will return soon." — Emeka Nwankwo</p>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS & FAQ -->
-  <section class="grid-2">
-    <div class="panel">
-      <h4>Testimonials</h4>
-      <div style="margin-top:10px;color:var(--muted)">
-        <p><strong>Benjamin Arnold</strong> — "FRIXEL rebuilt our restaurant site and bookings increased. Fast and very clean design."</p>
-        <p><strong>Emeka Chukwuma</strong> — "Good communication, on time delivery. Helped our hotel look more premium."</p>
-      </div>
-    </div>
-    <div class="panel">
-      <h4>FAQ</h4>
-      <div style="margin-top:10px;color:var(--muted)">
-        <p><strong>How long to deliver?</strong> Starter site: 2–4 days. Business: 5–10 days.</p>
-        <p><strong>Do you provide support?</strong> Yes — 1 month free on Business plan. Ongoing maintenance ₦10k/month.</p>
-      </div>
-    </div>
-  </section>
+  <div class="demo-note">
+This is a demo template by <strong>Frixel Digital Studio</strong>. All images are stock or publicly available images. Buttons are functional for demonstration purposes.  </div>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact" aria-labelledby="contactTitle">
-    <div class="left">
-      <h3 id="contactTitle">Let's build something great</h3>
-      <p style="color:var(--muted);margin-top:8px">Message me on WhatsApp for fast replies. I handle design, front-end and full-stack (premium).</p>
-    </div>
-    <div class="actions">
-      <a class="btn-cta" href="https://wa.me/2348153972391" target="_blank">WhatsApp — 08153972391</a>
-      <a class="btn-outline" href="mailto:frixeldigitalstudio@gmail.com">Email: frixeldigitalstudio@gmail.com</a>
-    </div>
-  </section>
-
+  <!-- Footer -->
   <footer>
-    ©️ 2025 FRIXEL DIGITAL STUDIO — Your Digital Edge • Enugu • <a href="https://wa.me/2348153972391">08153972391</a>
+    Frixel Digital Studio • Enugu • <a href="https://wa.me/23481572391">08153972391</a>
   </footer>
 </div>
-
-<!-- Modal -->
-<div id="modal" class="modal" role="dialog" aria-hidden="true">
-  <div class="box" role="document">
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <div><strong id="mTitle"></strong><div id="mCat" style="color:var(--muted);font-size:13px"></div></div>
-      <button class="btn-outline" onclick="closeModal()">Close</button>
-    </div>
-    <div style="margin-top:12px"><img id="mImg" src="" alt=""></div>
-    <div class="meta" id="mDesc"></div>
-    <div style="margin-top:12px;display:flex;gap:8px"><a id="mLive" class="btn-outline" target="_blank" href="#">Open live</a></div>
-  </div>
-</div>
-
-<script>
-(function(){
-  const projects = [
-    { title:'GoldCrest Properties', image: src="https://i.postimg.cc/gxxt0h3H/Screenshot-2025-11-19-201224.png", category:'Real Estate', link:'#', description:'Premium real estate listing site demo — clean property cards & search-ready UI.' },
-    { title:'The Enugu Resort', image: src="https://i.postimg.cc/BXYwspPt/Screenshot-2025-11-19-201244.png", category:'Hotel', link:'#', description:'Luxury hotel demo with rooms, amenities and clear booking CTA.' },
-    { title:'Jonnez Restaurant', image: src="https://i.postimg.cc/K1Cq3Y59/Screenshot-2025-11-19-201307.png", category:'Restaurant', link:'#', description:'Restaurant demo with menu, dishes and contact/ordering CTA.' },
-    { title:'FlexFit Gym', image: src="https://i.postimg.cc/MvKrhNTd/Screenshot-2025-11-19-201142.png", category:'Gym', link:'#', description:'Gym demo showcasing classes, trainers and membership plans.' },
-    { title:'SportsStore', image: src="//i.postimg.cc/G467Tpjq/Screenshot-2025-11-19-201343.png", category:'E-Commerce', link:'#', description:'E-commerce demo selling jerseys, boots and sports accessories.' },
-    { title:'Rosewood Event Venue', image: src="https://i.postimg.cc/68Fj4QhP/Screenshot-2025-11-19-201327.png", category:'Event Venue', link:'#', description:'Elegant event & wedding venue demo with gallery and booking info.' }
-  ];
-
-  const list = document.getElementById('projectsList');
-
-  function el(tag, attrs={}, children=[]){
-    const e = document.createElement(tag);
-    Object.entries(attrs).forEach(([k,v]) => {
-      if(k==='class') e.className = v;
-      else if(k==='text') e.textContent = v;
-      else e.setAttribute(k,v);
-    });
-    (Array.isArray(children) ? children : [children]).forEach(c => {
-      if(!c) return;
-      if(typeof c==='string') e.appendChild(document.createTextNode(c));
-      else e.appendChild(c);
-    });
-    return e;
-  }
-
-  projects.forEach((p,i)=>{
-    const card = el('div',{class:'card'});
-    const img = el('img',{src:p.image,alt:p.title});
-    const body = el('div',{class:'card-body'});
-    const h4 = el('h4',{text:p.title});
-    const desc = el('p',{text:p.description});
-    const meta = el('div',{class:'card-meta'});
-    const tag = el('div',{class:'tag',text:p.category});
-    const controls = el('div',{},[
-      el('button',{class:'btn-outline',onclick:`openModal(${i})`,type:'button'},['Preview']),
-      p.link ? el('a',{class:'btn-outline',href:p.link,target:'_blank'},['Live']) : null
-    ]);
-
-    meta.appendChild(tag);
-    meta.appendChild(controls);
-    body.appendChild(h4);
-    body.appendChild(desc);
-    body.appendChild(meta);
-    card.appendChild(img);
-    card.appendChild(body);
-    list.appendChild(card);
-  });
-
-  // modal
-  window.openModal = function(i){
-    const p=projects[i];
-    if(!p) return;
-    document.getElementById('mTitle').textContent=p.title;
-    document.getElementById('mCat').textContent=p.category;
-    document.getElementById('mImg').src=p.image;
-    document.getElementById('mDesc').textContent=p.description;
-    const link=document.getElementById('mLive');
-    if(p.link && p.link!=='#'){link.style.display='inline-block'; link.href=p.link;}else{link.style.display='none';}
-    document.getElementById('modal').classList.add('show');
-    document.getElementById('modal').setAttribute('aria-hidden','false');
-  };
-  window.closeModal=function(){
-    document.getElementById('modal').classList.remove('show');
-    document.getElementById('modal').setAttribute('aria-hidden','true');
-  };
-  document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal') closeModal();});
-
-  // smooth scroll
-  document.querySelectorAll('nav a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',ev=>{
-      ev.preventDefault();
-      const target=document.querySelector(a.getAttribute('href'));
-      if(target) target.scrollIntoView({behavior:'smooth'});
-    });
-  });
-})();
-</script>
 </body>
 </html>
