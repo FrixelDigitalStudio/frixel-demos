@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>GoldCrest Properties — Frixel Digital Studio (Booking-style Demo)</title>
+<style>
+  :root{
+    --forest:#2E7D32;     /* Forest green */
+    --forest-dark:#245424;
+    --white:#ffffff;
+    --muted:#55606a;
+    --accent:#F0F4F1;
+    --gold:#D4AF37;
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, "Segoe UI",Roboto,Helvetica,Arial;}
+  body{margin:0;background:var(--accent);color:var(--forest-dark);-webkit-font-smoothing:antialiased;}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:18px;}
+
+  /* header */
+  .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0;}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:46px;height:46px;border-radius:8px;background:linear-gradient(135deg,var(--forest),#3aa24a);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+  .brand .name{font-weight:700}
+  .topnav{display:flex;gap:14px;align-items:center}
+  .topnav a{color:var(--forest-dark);text-decoration:none;font-weight:600}
+
+  /* hero */
+  .hero{background:linear-gradient(90deg, rgba(46,125,50,0.08), rgba(46,125,50,0.02)), url('https://via.placeholder.com/1600x600?text=Property+Hero') center/cover no-repeat;border-radius:12px;padding:34px;margin-top:12px;}
+  .hero-inner{max-width:1100px;margin:0 auto;color:var(--forest-dark)}
+  .hero h1{margin:0;font-size:28px;color:var(--forest);font-weight:800}
+  .hero p{margin:8px 0 18px;color:var(--muted)}
+
+  /* search bar (booking style) */
+  .search-bar{display:flex;gap:10px;background:var(--white);padding:12px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.08);align-items:center;flex-wrap:wrap;}
+  .search-field{flex:1;min-width:160px;display:flex;flex-direction:column}
+  .search-field label{font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:600}
+  .search-field input,.search-field select{padding:10px;border-radius:8px;border:1px solid #e6e9ef;background:#fff;font-weight:600}
+  .search-actions{display:flex;gap:10px;align-items:center}
+  .btn-search{background:var(--forest);color:var(--white);padding:12px 18px;border-radius:8px;border:none;font-weight:800;cursor:pointer}
+  .btn-search:hover{background:var(--forest-dark)}
+
+  /* results area */
+  .results{display:flex;gap:20px;margin-top:20px}
+  /* left - filters */
+  .filters{width:280px;min-width:220px}
+  .filter-card{background:var(--white);padding:12px;border-radius:10px;margin-bottom:12px;box-shadow:0 6px 18px rgba(0,0,0,0.04)}
+  .filter-card h4{margin:0 0 10px 0;color:var(--forest)}
+  .checkbox-row{display:flex;gap:8px;flex-wrap:wrap}
+  .checkbox-row label{font-size:14px;color:var(--muted)}
+  /* right - listings */
+  .listing-wrap{flex:1}
+  .results-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .sort-select{padding:8px;border-radius:8px;border:1px solid #e6e9ef;background:#fff}
+  .list-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  .prop-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,0.06);display:flex;flex-direction:column}
+  .prop-img{width:100%;height:190px;object-fit:cover;background:#ddd}
+  .prop-body{padding:12px;flex:1;display:flex;flex-direction:column;gap:8px}
+  .prop-title{font-weight:800;color:var(--forest-dark);margin:0}
+  .prop-meta{color:var(--muted);font-size:13px}
+  .prop-row{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+  .price{font-weight:900;color:var(--forest);font-size:16px}
+  .cta-small{padding:8px 12px;border-radius:8px;background:#f0f3f0;border:none;color:var(--forest-dark);font-weight:800;cursor:pointer}
+  .cta-small-primary{background:var(--forest);color:#fff}
+
+  /* demo note */
+  .demo-note{margin-top:14px;padding:12px;background:#FFF8E1;border-radius:8px;color:#444;font-style:italic}
+
+  /* footer */
+  footer{margin-top:26px;text-align:center;color:var(--muted);font-size:13px}
+
+  /* responsive */
+  @media(max-width:900px){
+    .results{flex-direction:column}
+    .filters{width:auto;order:2}
+    .listing-wrap{order:1}
+    .hero h1{font-size:22px}
+    .search-bar{flex-direction:column;align-items:stretch}
+    .search-actions{justify-content:flex-end}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- top -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">FD</div>
+        <div>
+          <div class="name">Frixel Digital Studio</div>
+          <div style="font-size:12px;color:var(--muted)">Your Digital Edge.</div>
+        </div>
+      </div>
+      <nav class="topnav" aria-label="top navigation">
+        <a href="#">Home</a>
+        <a href="#">Properties</a>
+        <a href="#">Agents</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+
+    <!-- hero with search -->
+    <section class="hero" aria-label="search hero">
+      <div class="hero-inner">
+        <h1>Find the perfect home in Enugu</h1>
+        <p class="muted">Search hundreds of verified listings — houses, apartments, commercial spaces and more.</p>
+
+        <form class="search-bar" onsubmit="event.preventDefault()">
+          <div class="search-field">
+            <label for="loc">Location</label>
+            <input id="loc" placeholder="City, neighborhood or address (e.g. Independence Layout)"/>
+          </div>
+          <div class="search-field">
+            <label for="type">Property type</label>
+            <select id="type"><option>Any type</option><option>Apartment</option><option>House</option><option>Commercial</option></select>
+          </div>
+          <div class="search-field">
+            <label for="price">Min price (₦)</label>
+            <select id="price"><option>Any</option><option>₦5,000,000</option><option>₦20,000,000</option><option>₦50,000,000</option></select>
+          </div>
+          <div style="display:flex;flex-direction:column;min-width:120px">
+            <label for="beds">Beds</label>
+            <select id="beds"><option>Any</option><option>1</option><option>2</option><option>3+</option></select>
+          </div>
+
+          <div class="search-actions">
+            <button class="btn-search" type="submit">Search</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- results -->
+    <div class="results">
+      <!-- filters -->
+      <aside class="filters" aria-label="filters">
+        <div class="filter-card">
+          <h4>Filters</h4>
+          <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Refine results</div>
+          <div style="margin-top:6px">
+            <label style="display:block;margin-bottom:8px"><input type="checkbox"/> Has photos</label>
+            <label style="display:block;margin-bottom:8px"><input type="checkbox"/> Furnished</label>
+            <label style="display:block;margin-bottom:8px"><input type="checkbox"/> New listing</label>
+            <label style="display:block;margin-bottom:8px"><input type="checkbox"/> Near schools</label>
+          </div>
+        </div>
+
+        <div class="filter-card">
+          <h4>Price range</h4>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <input placeholder="Min ₦" style="flex:1;padding:8px;border-radius:8px;border:1px solid #eee"/>
+            <input placeholder="Max ₦" style="flex:1;padding:8px;border-radius:8px;border:1px solid #eee"/>
+          </div>
+        </div>
+
+        <div class="filter-card">
+          <h4>Agent type</h4>
+          <div class="checkbox-row" style="margin-top:8px">
+            <label><input type="checkbox"/> Agency</label>
+            <label><input type="checkbox"/> Individual</label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- listings -->
+      <main class="listing-wrap" aria-label="listings">
+        <div class="results-top">
+          <div style="font-weight:800">Showing <span style="color:var(--forest)">1–12</span> of 152 results</div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <div style="color:var(--muted);font-weight:700">Sort</div>
+            <select class="sort-select"><option>Recommended</option><option>Price: Low to High</option><option>Price: High to Low</option></select>
+          </div>
+        </div>
+
+        <div class="list-grid">
+          <!-- card 1 -->
+          <article class="prop-card">
+            <img class="prop-img" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/449452374.jpg?k=b4813605873cf2f26c0db9d714618c7104b3462cf485aad6c44185486a411573&o=" alt="Property 1">
+            <div class="prop-body">
+              <h3 class="prop-title">3-Bed Apartment — Independence Layout</h3>
+              <div class="prop-meta">2 baths • 1 garage • 120 sqm</div>
+              <p class="prop-meta">Modern apartment in gated estate, close to shops and transit.</p>
+              <div class="prop-row">
+                <div class="price">₦45,000,000</div>
+                <div style="display:flex;gap:8px">
+                  <button class="cta-small">View</button>
+                  <button class="cta-small cta-small-primary">Contact</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- card 2 -->
+          <article class="prop-card">
+            <img class="prop-img" src="https://sunhatvillaswebstorage.blob.core.windows.net/photocache/4825/2880/1.jpg" alt="Property 2">
+            <div class="prop-body">
+              <h3 class="prop-title">Luxury Villa — New Haven</h3>
+              <div class="prop-meta">5 beds • 4 baths • private pool</div>
+              <p class="prop-meta">Spacious family villa with garden and ample parking.</p>
+              <div class="prop-row">
+                <div class="price">₦120,000,000</div>
+                <div style="display:flex;gap:8px">
+                  <button class="cta-small">View</button>
+                  <button class="cta-small cta-small-primary">Contact</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- card 3 -->
+          <article class="prop-card">
+            <img class="prop-img" src="https://www.workspace.co.uk/media/content%20hub/category%20banner%20images/commercial-property-hero-image.jpg?width=1920&height=800&mode=crop&format=webp&quality=60" alt="Property 3">
+            <div class="prop-body">
+              <h3 class="prop-title">Commercial Space — Coal City Plaza</h3>
+              <div class="prop-meta">Open-plan • High foot traffic</div>
+              <p class="prop-meta">Ideal for retail or office space in busy plaza.</p>
+              <div class="prop-row">
+                <div class="price">₦80,000,000</div>
+                <div style="display:flex;gap:8px">
+                  <button class="cta-small">View</button>
+                  <button class="cta-small cta-small-primary">Contact</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- more cards (repeat as needed) -->
+          <article class="prop-card">
+            <img class="prop-img" src="https://images.ctfassets.net/s4ybdu2ld1ox/6JhnE5xx8PuKJCDPjcQuAb/55085582846214ee9296626005277f51/2_bedroom_house_plans.jpg" alt="Property 4">
+            <div class="prop-body">
+              <h3 class="prop-title">2-Bed Terrace — GRA</h3>
+              <div class="prop-meta">2 beds • 2 baths</div>
+              <p class="prop-meta">Quiet neighborhood, secure compound.</p>
+              <div class="prop-row">
+                <div class="price">₦28,000,000</div>
+                <div style="display:flex;gap:8px">
+                  <button class="cta-small">View</button>
+                  <button class="cta-small cta-small-primary">Contact</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div> <!-- list-grid -->
+
+        <div style="margin-top:18px;text-align:center;">
+          <button style="padding:10px 14px;border-radius:8px;border:1px solid #ddd;background:#fff;font-weight:700">Load more results</button>
+        </div>
+
+        <div class="demo-note">
+          This is a demo template by <strong>Frixel Digital Studio</strong>. All images are placeholders and the layout can be customized to your brand and property data.
+        </div>
+
+      </main>
+    </div> <!-- results -->
+
+    <footer>
+      <div style="margin-top:20px;text-align:center;color:var(--muted)">Frixel Digital Studio • Enugu • <a href="https://wa.me/23481572391">08153972391</a></div>
+    </footer>
+  </div>
+
+<!-- small script for demo (no functionality required) -->
+<script>
+  // quick demo: when Contact clicked, open WhatsApp link
+  document.querySelectorAll('.cta-small-primary').forEach(btn=>{
+    btn.addEventListener('click', ()=> window.open('https://wa.me/23481572391','_blank'));
+  });
+</script>
+</body>
+</html>

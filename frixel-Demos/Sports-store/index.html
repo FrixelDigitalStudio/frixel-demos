@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sports Store — Frixel Digital Studio Demo</title>
+<style>
+:root {
+  --bg-light: #f4f4f4;
+  --primary-black: #1c1c1c;
+  --accent-green: #39FF14;
+  --text-dark: #333;
+  --text-muted: #555;
+  --maxw: 1200px;
+}
+* {box-sizing:border-box; font-family:'Inter', sans-serif;}
+body {margin:0; background: var(--bg-light); color: var(--text-dark);}
+a {color: inherit; text-decoration: none;}
+button {cursor:pointer;}
+
+/* Container */
+.wrap {max-width: var(--maxw); margin:0 auto; padding:18px;}
+
+/* Topbar */
+.topbar {display:flex; justify-content:space-between; align-items:center; padding:8px 0;}
+.brand {display:flex; align-items:center; gap:12px;}
+.logo {width:50px; height:50px; border-radius:8px; background: var(--primary-black); display:flex; justify-content:center; align-items:center; color:#fff; font-weight:800; font-size:20px;}
+.topnav {display:flex; gap:14px; align-items:center;}
+.topnav a {font-weight:600; padding:6px 12px; border-radius:6px; transition:0.2s;}
+.topnav a:hover {background: var(--accent-green); color:#fff;}
+
+/* HERO SLIDER */
+.hero {
+  position: relative;
+  height: 380px;
+  border-radius:12px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  padding:60px;
+  color:#fff;
+}
+
+/* 3 SLIDE IMAGES */
+.hero-bg {
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:opacity 1.2s ease-in-out;
+}
+.hero-bg.active {
+  opacity:1;
+}
+
+/* Dark overlay */
+.hero::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.45);
+}
+
+/* Hero text */
+.hero-left {
+  position:relative;
+  z-index:5;
+  max-width:500px;
+  animation:fadeUp 1.4s ease;
+}
+.hero-left h1 {font-size:42px; margin:0;}
+.hero-left p {font-size:18px; margin-bottom:22px;}
+.btn-shop {
+  background: var(--accent-green);
+  color:#000;
+  padding:14px 20px;
+  border:none;
+  border-radius:8px;
+  font-weight:700;
+  transition:0.2s;
+}
+.btn-shop:hover {background:#28c10d;}
+
+/* Fade-in scroll animation */
+.fade-in {
+  opacity:0;
+  transform: translateY(25px);
+  transition:0.8s ease;
+}
+.fade-in.visible {
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  from {opacity:0; transform: translateY(25px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+/* Sections */
+.section {margin-top:28px;}
+.section h2 {font-size:24px; font-weight:800; margin-bottom:12px; color: var(--primary-black);}
+
+/* Product Grid */
+.products-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
+.product-card {background:#fff; border-radius:12px; box-shadow:0 6px 22px rgba(0,0,0,0.06); overflow:hidden; display:flex; flex-direction:column; transition:0.2s;}
+.product-card:hover {transform: translateY(-4px);}
+.product-card img {width:100%; height:220px; object-fit:cover;}
+.product-body {padding:12px; display:flex; flex-direction:column; gap:6px;}
+.product-title {margin:0; font-weight:800; color: var(--text-dark);}
+.product-price {font-weight:900; color: var(--accent-green);}
+.btn-buy {padding:8px 12px; border-radius:8px; border:none; font-weight:700; cursor:pointer; background: var(--primary-black); color:#fff; transition:0.2s;}
+.btn-buy:hover {background:#333;}
+
+/* Categories */
+.categories {display:flex; flex-wrap:wrap; gap:16px; margin-top:12px;}
+.category-card {
+  position:relative;
+  flex:1;
+  min-width:180px;
+  height:120px;
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,0.05);
+}
+
+/* Footer */
+footer {margin-top:26px;text-align:center;color:var(--text-muted); font-size:13px;}
+.demo-note {margin-top:14px; padding:12px; background:#E0F7FA; border-radius:8px; color:#444; font-style:italic;}
+
+@media(max-width:900px){
+  .hero {padding:30px; height:300px;}
+  .products-grid {grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">FD</div>
+      <div>
+        <div style="font-weight:700;">Frixel Digital Studio</div>
+        <div style="font-size:12px; color:var(--text-muted)">Your Digital Edge</div>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="#">Home</a>
+      <a href="#">Categories</a>
+      <a href="#">Products</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+<section class="hero">
+
+  <!-- SLIDE 1 -->
+  <div class="hero-bg active" style="background-image:url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/2f4ee9102941847.5f42516cda6ed.jpg');"></div>
+
+  <!-- SLIDE 2 -->
+  <div class="hero-bg" style="background-image:url('https://s2.resortssupplies.com/wp-content/uploads/2025/05/Custom-Team-Jersey-for-Hotel-Sports-Leagues-Size-S-7XL.jpg');"></div>
+
+  <!-- SLIDE 3 -->
+  <div class="hero-bg" style="background-image:url('https://www.afasports.com/cdn/shop/collections/064A8682n_1200x1200.jpg?v=1657297541');"></div>
+
+  <div class="hero-left">
+    <h1>SportsStore</h1>
+    <p>Your one-stop shop for jerseys, boots, socks & accessories!</p>
+    <button class="btn-shop" onclick="window.open('https://wa.me/23481572391','_blank')">Shop Now</button>
+  </div>
+
+</section>
+
+  <!-- Categories -->
+  <section class="section">
+    <h2>Featured Categories</h2>
+    <div class="categories">
+  <div class="category-card">
+    <img src="https://s2.resortssupplies.com/wp-content/uploads/2025/05/Custom-Team-Jersey-for-Hotel-Sports-Leagues-Size-S-7XL.jpg" alt="Jerseys" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+    <div style="position:absolute; bottom:8px; left:12px; color:#860c0c; font-weight:700;">Jerseys</div>
+  </div>
+  <div class="category-card">
+    <img src="https://images.contentstack.io/v3/assets/bltd427b71c2e191abd/bltdca3d19b1cb1567f/679c5ebca8d8550211b6d6c8/ASICS-Football-Blog-Hero-Image-1600x700.jpg?format=webp&quality=80" alt="Soccer Boots" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+    <div style="position:absolute; bottom:8px; left:12px; color:#921010; font-weight:700;">Soccer Boots</div>
+  </div>
+  <div class="category-card">
+    <img src="https://trabasack.com/wp-content/uploads/2016/07/greeper-laces-sport-laces.jpg" alt="Socks & Laces" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+    <div style="position:absolute; bottom:8px; left:12px; color:#8a0c0c; font-weight:700;">Socks & Laces</div>
+  </div>
+  <div class="category-card">
+    <img src="https://badargroups.com/wp-content/uploads/2024/08/1712315118260.jpeg" alt="Accessories" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+    <div style="position:absolute; bottom:8px; left:12px; color:#891111; font-weight:700;">Accessories</div>
+  </div>
+</div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section">
+    <h2>Featured Products</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://p.globalsources.com/IMAGES/PDT/B1215994021/Football-Jersey.png?ver=6025695931" alt="Jersey">
+        <div class="product-body">
+          <h3 class="product-title">Team Jersey</h3>
+          <div class="product-price">₦12,000</div>
+          <button class="btn-buy" onclick="window.open('https://wa.me/23481572391','_blank')">Buy Now</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://www.afasports.com/cdn/shop/collections/064A8682n_1200x1200.jpg?v=1657297541" alt="Soccer Boots">
+        <div class="product-body">
+          <h3 class="product-title">Soccer Boots</h3>
+          <div class="product-price">₦25,000</div>
+          <button class="btn-buy" onclick="window.open('https://wa.me/23481572391','_blank')">Buy Now</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://du-cms.imgix.net/31074/1731703629-462548987_928152815583055_6310064182905436662_n.jpg?auto=format%2Ccompress&fit=crop&q=90&w=3840" alt="Socks">
+        <div class="product-body">
+          <h3 class="product-title">Sports Socks</h3>
+          <div class="product-price">₦3,500</div>
+          <button class="btn-buy" onclick="window.open('https://wa.me/23481572391','_blank')">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="demo-note">
+    This is a demo template by <strong>Frixel Digital Studio</strong>. All images are stock or publicly available. Buttons are functional for demonstration purposes.
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    Frixel Digital Studio • Enugu • <a href="https://wa.me/23481572391">08153972391</a>
+  </footer>
+</div>
+<script>
+// HERO SLIDER
+let slideIndex = 0;
+let slides = document.querySelectorAll(".hero-bg");
+
+function showSlides() {
+  slides.forEach(s => s.classList.remove("active"));
+  slideIndex = (slideIndex + 1) % slides.length;
+  slides[slideIndex].classList.add("active");
+}
+setInterval(showSlides, 4000);
+
+// SCROLL FADE-IN
+const faders = document.querySelectorAll('.fade-in');
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    const rect = el.getBoundingClientRect().top;
+    if (rect < window.innerHeight - 100) {
+      el.classList.add("visible");
+    }
+  });
+});
+</script>
+</body>
+</html>
